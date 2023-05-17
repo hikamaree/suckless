@@ -1,0 +1,3 @@
+#!/bin/sh
+brillo -A 10.201
+kill -40 $(pidof dwmblocks)
