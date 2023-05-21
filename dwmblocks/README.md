@@ -1,12 +1,10 @@
 # Introduction
 This is my build of dwmblocks. It is a tool to modify the statis bar for dwm. It has modules for:
-1. CPU usage
-2. Memory Usage
-3. Internet bandwidth in and out
-4. Volume level
-5. Battery
-6. Date
-7. Time
+1. Internet bandwidth
+2. Volume level
+3. Brightnest
+4. Battery
+5. Time
 
 # What is dwmblocks?
 As described by torrinfail:
@@ -19,6 +17,7 @@ As described by torrinfail:
 # Dependencies
 * DWM
 * pulseaudio (uses pactl)
+* brillo
 
 # Running dwmblocks
 In your `~/.xinitrc` file put: 
