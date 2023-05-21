@@ -55,30 +55,30 @@ static const char *steam[]    		= { "steam", NULL };
 static const char *termcmd[]  		= { "st", NULL };
 static const char *browser[]  		= { "firefox", NULL };
 /* screenshot */
-static const char *full_scr[]  		= { "scrot",       "/home/marko/Pictures/screenshots/%b%d::%H%M%S.png", NULL };
-static const char *focus_scr[] 		= { "scrot", "-u", "/home/marko/Pictures/screenshots/%b%d::%H%M%S.png", NULL };
+static const char *select_scr[]  	= { "scrot", "-s", "/home/marko/Pictures/screenshots/%b%d::%H%M%S.png", NULL };
+static const char *full_scr[] 		= { "scrot", "-u", "/home/marko/Pictures/screenshots/%b%d::%H%M%S.png", NULL };
 /* volume */
 static const char *volumeup[] 		= { "volumeup", NULL };
 static const char *volumedown[] 	= { "volumedown", NULL };
-static const char *mute[] 		= { "mute", NULL };
+static const char *mute[] 			= { "mute", NULL };
 /* brightness */
 static const char *brightnessup[] 	= { "brightnessup", NULL };
-static const char *brightnessdown[] 	= { "brightnessdown", NULL };
+static const char *brightnessdown[] = { "brightnessdown", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask, 	        XK_Return, spawn,          {.v = termcmd } },
-	{ 0,                		XK_Super_L, spawn,    {.v = dmenucmd } },
+	{ 0,                			XK_Super_L, spawn,    	   {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
-	{ MODKEY,			XK_g,      spawn,	   {.v = steam} },
+	{ MODKEY,						XK_g,      spawn,	   	   {.v = steam} },
 	{ MODKEY,                       XK_q,      togglebar,      {0} },
 	{ 0,             XF86XK_AudioMute,     	   spawn,          {.v = mute} },
 	{ 0,  	         XF86XK_AudioLowerVolume,  spawn,          {.v = volumedown} },
 	{ 0,             XF86XK_AudioRaiseVolume,  spawn,          {.v = volumeup} },
 	{ 0,             XF86XK_MonBrightnessDown, spawn,          {.v = brightnessdown} },
 	{ 0,             XF86XK_MonBrightnessUp,   spawn,          {.v = brightnessup} },
-	{ MODKEY,                       PrtSc,     spawn,          {.v = full_scr } },
-	{ MODKEY|ShiftMask,             PrtSc,     spawn,          {.v = focus_scr } },
+	{ MODKEY,                       PrtSc,     spawn,          {.v = select_scr } },
+	{ MODKEY|ShiftMask,             PrtSc,     spawn,          {.v = full_scr } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },

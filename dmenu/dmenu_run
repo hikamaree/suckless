@@ -1,21 +1,18 @@
 #!/bin/bash
 
-programi="󰈹 firefox\n st\n ranger\n󰓓 steam\n󰡗 5d chess\n󰜃 cs:go\n󱓭 nfs most wanted\n󰚛 project zomboid\n󰿅 logout\n󰤆 poweroff\n reboot"
+programi="󰈹 firefox\n󰙯 discord\n st\n󰓓 steam\n󰿅 logout\n󰤆 poweroff\n reboot"
 
 program=$(echo -e "$programi" | dmenu -i -l 50 -c) # | ${SHELL:-"/bin/sh"})
 
 case "$program" in 
 	"󰈹 firefox") firefox;;
+	"󰙯 discord") discord;;
 	" ranger") st ranger;;
 	" st") st;;
 	"󰓓 steam") steam;;
-	"󰡗 5d chess") steam steam://rungameid/1349230;;
-	"󰜃 cs:go") steam steam://rungameid/730;;
-	"󱓭 nfs most wanted") /home/marko/Games/NFS-MostWanted/run;;
-	"󰚛 project zomboid") /home/marko/Games/Project_Zomboid/run;;
-	"󰿅 logout") kill -9 -1;;
-	"󰤆 poweroff") sudo poweroff;;
-	" reboot") sudo reboot;;
+	"󰿅 logout") pkill dwm;;
+	"󰤆 poweroff") poweroff;;
+	" reboot") reboot;;
 esac
 
 exec $program
