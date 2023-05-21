@@ -1,0 +1,18 @@
+#!/bin/bash
+
+programi="󰈹 firefox\n󰙯 discord\n st\n ranger\n󰓓 steam\n󰿅 logout\n󰤆 poweroff\n reboot"
+
+program=$(echo -e "$programi" | dmenu -i -l 50 -c) # | ${SHELL:-"/bin/sh"})
+
+case "$program" in 
+	"󰈹 firefox") firefox;;
+	"󰙯 discord") discord;;
+	" ranger") st ranger;;
+	" st") st;;
+	"󰓓 steam") steam;;
+	"󰿅 logout") pkill dwm;;
+	"󰤆 poweroff") sudo poweroff;;
+	" reboot") sudo reboot;;
+esac
+
+exec $program
