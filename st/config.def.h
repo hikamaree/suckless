@@ -98,7 +98,7 @@ float alpha = 1;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#17181a", /* 0: black */
+	"#171a1e", /* 0: black */
 	"#e06c75", /* 1: red */
 	"#98c379", /* 2: green */
 	"#d19a66", /* 3: yellow */
@@ -106,7 +106,7 @@ static const char *colorname[] = {
 	"#c678dd", /* 5: magenta */
 	"#56b6c2", /* 6: cyan */
 	"#80c0d0", /* 7: white */
-	"#27282a", /* 8: brblack */
+	"#273438", /* 8: brblack */
 	"#e06c75", /* 9: brred */
 	"#98c379", /* 10: brgreen */
 	"#d19a66", /* 11: bryellow */
@@ -125,8 +125,8 @@ unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
 unsigned int defaultcs = 7;
 static unsigned int defaultrcs = 0;
-unsigned int selectionbg = 7;
-unsigned int selectionfg = 0;
+unsigned int selectionbg = 8;
+unsigned int selectionfg = 7;
 /* If 0 use selectionfg as foreground in order to have a uniform foreground-color */
 /* Else if 1 keep original foreground-color of each cell => more colors :) */
 static int ignoreselfg = 0;

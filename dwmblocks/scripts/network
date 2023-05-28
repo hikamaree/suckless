@@ -19,7 +19,7 @@ power=$(nmcli radio wifi)
 				printf %d\\n $(( sum - old ))
 	}
 
-rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+	rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
 
 	signal=$(cat /proc/net/wireless | awk '{if(NR == 3){print substr($3,1,2)}}')
 	if (($signal < 14));
