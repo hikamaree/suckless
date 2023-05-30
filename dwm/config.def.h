@@ -8,7 +8,7 @@ static const unsigned int gappx     = 16;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Regular:size=15" };
+static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Regular:size=14" };
 static const char col_bornorm[]     = "#2d3034";
 static const char col_borsel[]      = "#9090a0";
 static const char col_black[]       = "#171a1e";

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-programi="󰈹 firefox\n󰙯 discord\n st\n ranger\n htop\n󰿅 logout\n󰤆 poweroff\n reboot"
+programi="󰈹 firefox\n󰙯 discord\n st\n ranger\n htop\n󰿅 logout\n󰤆 poweroff"
 
 program=$(echo -e "$programi" | dmenu -i -l 10 -c) # | ${SHELL:-"/bin/bash"})
 
@@ -12,7 +12,6 @@ case "$program" in
 	" htop") st htop;;
 	"󰿅 logout") pkill dwm;;
 	"󰤆 poweroff") poweroff;;
-	" reboot") reboot;;
 esac
 
 exec $program
