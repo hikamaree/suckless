@@ -1,0 +1,14 @@
+#!/bin/bash
+B=$(brillo)
+b=${B%.*}
+if (( b < 30 )); 
+then
+	printf "󰃞 "
+elif (( b < 70 ));
+then
+	printf "󰃟 "
+else
+	printf "󰃠 "
+fi
+
+printf $b

@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "SauceCodePro Nerd Font:style=Regular:size=14" ;
-static int borderpx = 20;
+static int borderpx = 10;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -91,14 +91,14 @@ char *termname = "st";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 1;
+float alpha = 0.5;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#171a1e", /* 0: black */
+	"#000000", /* 0: black */
 	"#e06c75", /* 1: red */
 	"#98c379", /* 2: green */
 	"#d19a66", /* 3: yellow */
