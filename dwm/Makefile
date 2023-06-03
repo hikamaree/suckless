@@ -39,7 +39,6 @@ dist: clean
 install: all
 	cp -f scripts/volumeup scripts/volumedown scripts/mute $(DESTDIR)$(PREFIX)/bin
 	cp -f scripts/brightnessdown scripts/brightnessup $(DESTDIR)$(PREFIX)/bin
-	cp -f scripts/performance scripts/powersave $(DESTDIR)$(PREFIX)/bin
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
