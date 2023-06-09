@@ -37,8 +37,7 @@ dist: clean
 	rm -rf dwm-${VERSION}
 
 install: all
-	cp -f scripts/volumeup scripts/volumedown scripts/mute $(DESTDIR)$(PREFIX)/bin
-	cp -f scripts/brightnessdown scripts/brightnessup $(DESTDIR)$(PREFIX)/bin
+	cp -f scripts/volume scripts/brightness $(DESTDIR)$(PREFIX)/bin
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm

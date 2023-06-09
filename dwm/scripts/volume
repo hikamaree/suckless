@@ -1,0 +1,40 @@
+#!/bin/sh
+case "$1" in
+	"down")
+		pactl set-sink-volume 0 -5%
+		pactl set-sink-volume 1 -5%
+		pactl set-sink-volume 2 -5%
+		pactl set-sink-volume 3 -5%
+		kill -44 $(pidof dwmblocks);;
+	"up")
+		vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+		if (( $vol <= 95 )); then
+			pactl set-sink-volume 0 +5%
+			pactl set-sink-volume 1 +5%
+			pactl set-sink-volume 2 +5%
+			pactl set-sink-volume 3 +5%
+		else
+			pactl set-sink-volume 0 100%
+			pactl set-sink-volume 1 100%
+			pactl set-sink-volume 2 100%
+			pactl set-sink-volume 3 100%
+		fi
+		kill -44 $(pidof dwmblocks);;
+
+	"mute")
+		pactl set-sink-mute 0 toggle
+		pactl set-sink-mute 1 toggle
+		pactl set-sink-mute 2 toggle
+		pactl set-sink-mute 3 toggle
+		kill -44 $(pidof dwmblocks);;
+	*)
+		vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+		mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+		if [[ $mute == *"yes"* ]];
+		then
+			printf " "
+		else 
+			printf " "
+			printf $vol
+		fi
+esac

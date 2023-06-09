@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 16;        /* gaps between windows */
+static const unsigned int gappx     = 16;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -31,21 +31,23 @@ static const unsigned int alphas[][3]      = {
 static const char *tags[] = { "", "", "", ""};
 
 static const Rule rules[] = {
-	 /* class      instance    title       tags mask     isfloating   monitor*/
-	 { "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	/* class      instance    title       tags mask     isfloating   monitor*/
+	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
 static const float mfact     	= 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     	= 1;    /* number of clients in master area */
 static const int resizehints 	= 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 1; 	/* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
 	{ "",      NULL },    /* no layout function means floating behavior */
 };
+
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* key definitions */
 #define PrtSc 0x0000ff61
@@ -63,15 +65,13 @@ static const char *steam[]    		= { "steam", NULL };
 static const char *termcmd[]  		= { "st", NULL };
 static const char *browser[]  		= { "firefox", NULL };
 /* screenshot */
-static const char *select_scr[]		= { "scrot", "-s", "/home/marko/Pictures/screenshots/%b%d_%H%M%S.png", NULL };
-static const char *full_scr[] 		= { "scrot", "/home/marko/Pictures/screenshots/%b%d_%H%M%S.png", NULL };
 /* volume */
-static const char *volumeup[] 		= { "volumeup", NULL };
-static const char *volumedown[] 	= { "volumedown", NULL };
-static const char *mute[] 			= { "mute", NULL };
+static const char *volumeup[] 		= { "volume", "up", NULL };
+static const char *volumedown[] 	= { "volume", "down", NULL };
+static const char *mute[] 			= { "volume", "mute", NULL };
 /* brightness */
-static const char *brightnessup[] 	= { "brightnessup", NULL };
-static const char *brightnessdown[] = { "brightnessdown", NULL };
+static const char *brightnessup[] 	= { "brightness", "up", NULL };
+static const char *brightnessdown[] = { "brightness", "down", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -85,8 +85,6 @@ static const Key keys[] = {
 	{ 0,             XF86XK_AudioRaiseVolume,  spawn,          {.v = volumeup} },
 	{ 0,             XF86XK_MonBrightnessDown, spawn,          {.v = brightnessdown} },
 	{ 0,             XF86XK_MonBrightnessUp,   spawn,          {.v = brightnessup} },
-	{ MODKEY,                       PrtSc,     spawn,          {.v = select_scr } },
-	{ MODKEY|ShiftMask,             PrtSc,     spawn,          {.v = full_scr } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -115,6 +113,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ 0,                       		PrtSc,     spawn,          SHCMD("/usr/bin/maim -su | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/screenshots/$(date '+%b%d_%H%M%S').png")},
+	{ ShiftMask,                    PrtSc,     spawn,          SHCMD("/usr/bin/maim -u | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/screenshots/$(date '+%b%d_%H%M%S').png")},
 };
 
 /* button definitions */
@@ -132,4 +132,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
