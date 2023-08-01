@@ -1,0 +1,21 @@
+#!/bin/bash
+
+programi="󰈹 firefox\n󰙯 discord\n󰓓 steam\n󰍳 minecraft\n st\n lf\n ncmpcpp\n htop\n logisim\n󱇧 paint\n󰿅 logout\n󰤆 poweroff"
+
+program=$(echo -e "$programi" | dmenu -i -l 20 -c)
+
+case "$program" in 
+	"󰈹 firefox") firefox;;
+	"󰙯 discord") discord;;
+	"󰓓 steam") GDK_SCALE=2 steam;;
+	"󰍳 minecraft") minecraft-launcher;;
+	" st") st;;
+	" lf") st lf;;
+	" ncmpcpp") st ncmpcpp;;
+	" htop") st htop;;
+	" logisim") GDK_SCALE=2 logisim;;
+	"󱇧 paint") pinta;;
+	"󰿅 logout") pkill dwm;;
+	"󰤆 poweroff") poweroff;;
+	*) eval $program;;
+esac
