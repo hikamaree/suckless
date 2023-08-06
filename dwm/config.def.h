@@ -83,7 +83,7 @@ static const char *volumedown[]     = { "volume", "down", NULL };
 static const char *mute[]           = { "volume", "mute", NULL };
 static const char *brightnessup[]   = { "brightness", "up", NULL };
 static const char *brightnessdown[] = { "brightness", "down", NULL };
-static const char *browser[]        = { "firefox", NULL };
+static const char *browser[]        = { "librewolf", NULL };
 static const char *discord[]        = { "discord", NULL };
 
 /* shortcuts */

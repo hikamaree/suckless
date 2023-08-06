@@ -1,11 +1,11 @@
 #!/bin/bash
 
-programi="󰈹 firefox\n󰙯 discord\n󰓓 steam\n󰍳 minecraft\n st\n lf\n ncmpcpp\n htop\n logisim\n󱇧 paint\n󰿅 logout\n󰤆 poweroff"
+programi="󰖟 librewolf\n󰙯 discord\n󰓓 steam\n󰍳 minecraft\n st\n lf\n ncmpcpp\n htop\n logisim\n󱇧 paint\n󰿅 logout\n󰤆 poweroff"
 
 program=$(echo -e "$programi" | dmenu -i -l 20 -c)
 
 case "$program" in 
-	"󰈹 firefox") firefox;;
+	"󰖟 librewolf") librewolf;;
 	"󰙯 discord") discord;;
 	"󰓓 steam") GDK_SCALE=2 steam;;
 	"󰍳 minecraft") minecraft-launcher;;
