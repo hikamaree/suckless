@@ -10,7 +10,7 @@ case "$program" in
 	"󰓓 steam") steam;;
 	"󰍳 minecraft") minecraft-launcher;;
 	" st") st;;
-	" lf") st lf;;
+	" lf") st lfrun;;
 	" ncmpcpp") st ncmpcpp;;
 	" htop") st htop;;
 	" logisim") logisim;;
