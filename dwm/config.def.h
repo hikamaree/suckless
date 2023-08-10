@@ -29,15 +29,15 @@ static const unsigned int alphas[][3] = {
 /* tagging */
 static const char *tags[] = { "", "", "", ""};
 
-static const Rule rules[] = {
+static const Rule rules[] = { NULL
     /* class      instance      title       tags mask     isfloating   monitor */
-    { NULL,       "spst",       NULL,       SPTAG(0),       1,          -1 },
-    { NULL,       "splf",       NULL,       SPTAG(1),       1,          -1 },
-    { NULL,       "spmpd",      NULL,       SPTAG(2),       1,          -1 },
+    //{ NULL,       "spst",       NULL,       SPTAG(0),       1,          -1 },
+    //{ NULL,       "splf",       NULL,       SPTAG(1),       1,          -1 },
+    //{ NULL,       "spmpd",      NULL,       SPTAG(2),       1,          -1 },
 };
 
 /* layout(s) */
-static const float mfact        = 0.55;
+static const float mfact = 0.55;
 static const int nmaster        = 1;
 static const int resizehints    = 0;
 static const int lockfullscreen = 1;
@@ -68,13 +68,6 @@ static char dmenumon[2] = "0";
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* scratchpads */
-static void *scratchpads[][10] = {
-    {"st", "-n", "spst", "-g", "120x30", NULL },
-    {"st", "-n", "splf", "-g", "120x30", "-e", "lfrun", NULL },
-    {"st", "-n", "spmpd", "-g", "120x30", "-e", "ncmpcpp", NULL },
-};
-
 /* commands */
 static const char *termcmd[]        = { "st", NULL };
 static const char *dmenucmd[]       = { "dmenu_run", NULL };
@@ -85,6 +78,11 @@ static const char *brightnessup[]   = { "brightness", "up", NULL };
 static const char *brightnessdown[] = { "brightness", "down", NULL };
 static const char *browser[]        = { "librewolf", NULL };
 static const char *discord[]        = { "discord", NULL };
+
+static const char scratchpadname[] = "sc";
+static const char *st[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *lf[] = { "st", "-e", "lfrun", "-t", scratchpadname, "-g", "120x30", NULL };
+static const char *ncmpcpp[] = { "st", "-e", "ncmpcpp", "-t", scratchpadname, "-g", "120x30", NULL };
 
 /* shortcuts */
 static const Key keys[] = {
@@ -98,9 +96,9 @@ static const Key keys[] = {
 	{ 0,                VolUp,          spawn,          {.v = volumeup} },
 	{ 0,                BrtDown,        spawn,          {.v = brightnessdown} },
 	{ 0,                BrtUp,          spawn,          {.v = brightnessup} },
-	{ MODKEY,           XK_x,           togglescratch,  {.ui = 0 } },
-	{ MODKEY,           XK_c,           togglescratch,  {.ui = 1 } },
-	{ MODKEY,           XK_v,           togglescratch,  {.ui = 2 } },
+	{ MODKEY,           XK_x,           togglescratch,  {.v = st } },
+	{ MODKEY,           XK_c,           togglescratch,  {.v = lf } },
+	{ MODKEY,           XK_v,           togglescratch,  {.v = ncmpcpp } },
 	{ MODKEY,           XK_q,           togglebar,      {0} },
 	{ MODKEY,           XK_z,           zoom,           {0} },
 	{ MODKEY,           XK_Tab,         view,           {0} },
