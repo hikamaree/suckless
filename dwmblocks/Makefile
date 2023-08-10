@@ -33,7 +33,7 @@ install: dwmblocks
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks\
-		${DESTDIR}${PREFIX}/bin/bat\
+		${DESTDIR}${PREFIX}/bin/btr\
 		${DESTDIR}${PREFIX}/bin/net\
 
 
