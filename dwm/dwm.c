@@ -1092,7 +1092,7 @@ manage(Window w, XWindowAttributes *wa)
 	c->bw = borderpx;
 
 	selmon->tagset[selmon->seltags] &= ~scratchtag;
-	if (!strcmp(c->name, scratchpadname)) {
+	if (!strcmp(c->name, spname)) {
 		c->mon->tagset[c->mon->seltags] |= c->tags = scratchtag;
 		c->isfloating = True;
 		c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);

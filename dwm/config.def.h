@@ -64,18 +64,18 @@ static char dmenumon[2] = "0";
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
-static const char *termcmd[]        = { "st", NULL };
-static const char *dmenucmd[]       = { "dmenu_run", NULL };
-static const char *volumeup[]       = { "volume", "up", NULL };
-static const char *volumedown[]     = { "volume", "down", NULL };
-static const char *mute[]           = { "volume", "mute", NULL };
-static const char *brightnessup[]   = { "brightness", "up", NULL };
-static const char *brightnessdown[] = { "brightness", "down", NULL };
-static const char *browser[]        = { "librewolf", NULL };
-static const char *discord[]        = { "discord", NULL };
+static const char *termcmd[]    = { "st", NULL };
+static const char *dmenucmd[]   = { "dmenu_run", NULL };
+static const char *volup[]      = { "vol", "up", NULL };
+static const char *voldown[]    = { "vol", "down", NULL };
+static const char *mute[]       = { "vol", "mute", NULL };
+static const char *brtup[]      = { "brt", "up", NULL };
+static const char *brtdown[]    = { "brt", "down", NULL };
+static const char *browser[]    = { "librewolf", NULL };
+static const char *discord[]    = { "discord", NULL };
 
-static const char scratchpadname[] = "sc";
-static const char *sc[] = { "st", "-t", scratchpadname, "-g", "120x30", NULL };
+static const char spname[]      = "sp";
+static const char *sp[]         = { "st", "-t", spname, "-g", "120x30", NULL };
 
 /* shortcuts */
 static const Key keys[] = {
@@ -85,11 +85,11 @@ static const Key keys[] = {
 	{ MODKEY,           XK_n,           spawn,          {.v = discord } },
 	{ 0,                XK_Super_L,     spawn,    	    {.v = dmenucmd } },
 	{ 0,                Mute,     	    spawn,          {.v = mute} },
-	{ 0,                VolDown,        spawn,          {.v = volumedown} },
-	{ 0,                VolUp,          spawn,          {.v = volumeup} },
-	{ 0,                BrtDown,        spawn,          {.v = brightnessdown} },
-	{ 0,                BrtUp,          spawn,          {.v = brightnessup} },
-	{ MODKEY,           XK_x,           togglescratch,  {.v = sc } },
+	{ 0,                VolDown,        spawn,          {.v = voldown} },
+	{ 0,                VolUp,          spawn,          {.v = volup} },
+	{ 0,                BrtDown,        spawn,          {.v = brtdown} },
+	{ 0,                BrtUp,          spawn,          {.v = brtup} },
+	{ MODKEY,           XK_grave,       togglescratch,  {.v = sp } },
 	{ MODKEY,           XK_q,           togglebar,      {0} },
 	{ MODKEY,           XK_z,           zoom,           {0} },
 	{ MODKEY,           XK_Tab,         view,           {0} },

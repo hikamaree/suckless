@@ -32,6 +32,9 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks
+	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks\
+		${DESTDIR}${PREFIX}/bin/bat\
+		${DESTDIR}${PREFIX}/bin/net\
+
 
 .PHONY: all options clean install uninstall
