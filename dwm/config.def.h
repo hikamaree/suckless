@@ -34,7 +34,7 @@ static const Rule rules[] = { NULL };
 /* layout(s) */
 static const float mfact = 0.55;
 static const int nmaster        = 1;
-static const int resizehints    = 0;
+static const int resizehints    = 1;
 static const int lockfullscreen = 1;
 
 static const Layout layouts[] = {
@@ -126,11 +126,10 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click            event mask      button          function        argument */
 	{ ClkLtSymbol,      0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,      0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkStatusText,    0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,     MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,     MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,     MODKEY,         Button1,        resizemouse,    {0} },
+	{ ClkClientWin,     MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,        0,              Button1,        view,           {0} },
 	{ ClkTagBar,        0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,        MODKEY,         Button1,        tag,            {0} },
