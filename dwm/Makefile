@@ -37,7 +37,6 @@ dist: clean
 	rm -rf dwm-${VERSION}
 
 install: all
-	cp -f scripts/* $(DESTDIR)$(PREFIX)/bin
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
@@ -47,8 +46,6 @@ install: all
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
-		${DESTDIR}${PREFIX}/bin/vol\
-		${DESTDIR}${PREFIX}/bin/brt\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall

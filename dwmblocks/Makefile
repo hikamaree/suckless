@@ -26,15 +26,11 @@ clean:
 	rm -f *.o *.gch dwmblocks
 
 install: dwmblocks
-	cp -f scripts/* ${DESTDIR}${PREFIX}/bin/
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwmblocks ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks\
-		${DESTDIR}${PREFIX}/bin/btr\
-		${DESTDIR}${PREFIX}/bin/net\
-
 
 .PHONY: all options clean install uninstall

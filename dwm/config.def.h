@@ -75,7 +75,7 @@ static const char *browser[]    = { "librewolf", NULL };
 static const char *discord[]    = { "discord", NULL };
 
 static const char spname[]      = "sp";
-static const char *sp[]         = { "st", "-t", spname, "-g", "120x30", NULL };
+static const char *sp[]         = { "st", "-t", spname, "-g", "110x30", NULL };
 
 /* shortcuts */
 static const Key keys[] = {
