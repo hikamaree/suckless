@@ -1,0 +1,21 @@
+#!/bin/sh
+case "$1" in
+	"down")
+		brillo -U 9.8
+		kill -40 $(pidof dwmblocks);;
+	"up")
+		brillo -A 10.201
+		kill -40 $(pidof dwmblocks);;
+	*)
+		B=$(brillo)
+		b=${B%.*}
+		if (( b < 30 )); 
+		then
+			echo "󰃞 $b"
+		elif (( b < 70 ));
+		then
+			echo "󰃟 $b"
+		else
+			echo "󰃠 $b"
+		fi
+esac
