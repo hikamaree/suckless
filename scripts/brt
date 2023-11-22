@@ -1,21 +1,19 @@
 #!/bin/sh
+brt=$(cat /sys/class/backlight/amdgpu_bl1/brightness)
 case "$1" in
-	"down")
-		brillo -U 9.8
-		kill -40 $(pidof dwmblocks);;
-	"up")
-		brillo -A 10.201
-		kill -40 $(pidof dwmblocks);;
-	*)
-		B=$(brillo)
-		b=${B%.*}
-		if (( b < 30 )); 
-		then
-			echo "󰃞 $b"
-		elif (( b < 70 ));
-		then
-			echo "󰃟 $b"
-		else
-			echo "󰃠 $b"
-		fi
+    "down")
+        b=$(echo $brt 5 | awk '{print $1 - $2}')
+        (( b < 0 )) && b=0
+        echo $b > /sys/class/backlight/amdgpu_bl1/brightness
+        kill -40 $(pidof dwmblocks);;
+    "up")
+        b=$(echo $brt 5 | awk '{print $1 + $2}')
+        (( b > 255 )) && b=255
+        echo $b > /sys/class/backlight/amdgpu_bl1/brightness
+        kill -40 $(pidof dwmblocks);;
+    "set")
+        (( $2 <= 255 && $2 >= 0 )) && echo $2 > /sys/class/backlight/amdgpu_bl1/brightness
+        kill -40 $(pidof dwmblocks);;
+    *)
+        echo "󰃠 $brt"
 esac

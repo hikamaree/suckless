@@ -1,21 +1,2 @@
 #!/bin/sh
-
-programi="󰖟 librewolf\n󰙯 discord\n󰓓 steam\n󰍳 minecraft\n st\n lf\n ncmpcpp\n htop\n logisim\n󱇧 paint\n󰿅 logout\n󰤆 poweroff"
-
-program=$(echo -e "$programi" | dmenu -i -l 20 -c)
-
-case "$program" in 
-	"󰖟 librewolf") librewolf;;
-	"󰙯 discord") discord;;
-	"󰓓 steam") steam;;
-	"󰍳 minecraft") minecraft-launcher;;
-	" st") st;;
-	" lf") st lfrun;;
-	" ncmpcpp") st ncmpcpp;;
-	" htop") st htop;;
-	" logisim") logisim;;
-	"󱇧 paint") pinta;;
-	"󰿅 logout") pkill dwm;;
-	"󰤆 poweroff") poweroff;;
-	*) eval $program;;
-esac
+dmenu_path | dmenu -l 15 "$@" | ${SHELL:-"/bin/sh"} &

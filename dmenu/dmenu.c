@@ -464,7 +464,10 @@ insert:
 		}
 		sel = matchend;
 		break;
-	case XK_Super_L:
+	case XK_Alt_R:
+		cleanup();
+		exit(1);
+	case XK_Escape:
 		cleanup();
 		exit(1);
 	case XK_Home:

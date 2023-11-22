@@ -1,4 +1,4 @@
-static char *font = "SauceCodePro Nerd Font:style=Regular:size=14" ;
+static char *font = "SauceCodePro Nerd Font:style=Regular:size=12" ;
 static int borderpx = 10;
 char *termname = "st";
 char *utmp = NULL;
@@ -19,25 +19,25 @@ static unsigned int blinktimeout = 500;
 static unsigned int cursorthickness = 4;
 static int bellvolume = 0;
 unsigned int tabspaces = 4;
-float alpha = 0.5;
+float alpha = 1;
 
 static const char *colorname[] = {
-	"#000000", /* 0: black */
-	"#e06c75", /* 1: red */
-	"#98c379", /* 2: green */
-	"#d19a66", /* 3: yellow */
-	"#61afef", /* 4: blue */
-	"#c678dd", /* 5: magenta */
-	"#56b6c2", /* 6: cyan */
-	"#80c0d0", /* 7: white */
-	"#273438", /* 8: brblack */
-	"#e06c75", /* 9: brred */
-	"#98c379", /* 10: brgreen */
-	"#d19a66", /* 11: bryellow */
-	"#61afef", /* 12: brblue */
-	"#c678dd", /* 13: brmagenta */
-	"#56b6c2", /* 14: brcyan */
-    "#80c0d0", /* 15: brwhite */
+	"#1a1b26",
+	"#f7768e",
+	"#9ece6a",
+	"#e0af68",
+	"#7aa2f7",
+	"#bb9af7",
+	"#7dcfff",
+	"#a9b1d6",
+	"#414868",
+	"#f7768e",
+	"#9ece6a",
+	"#e0af68",
+	"#7aa2f7",
+	"#bb9af7",
+	"#7dcfff",
+	"#c0caf5",
 };
 
 unsigned int defaultfg = 7;
