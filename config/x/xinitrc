@@ -1,11 +1,10 @@
 #!/bin/sh
 
-# xrdb -merge $HOME/.config/x/xresources
+xrdb -merge $HOME/.config/x/xresources
 
 xset r rate 200 50 &
-brt set 100 &
-feh --bg-fill --no-fehbg $HOME/.local/share/wallpapers/w3.png &
-picom -b &
+xsetroot -solid "#16161e" &
 dwmblocks &
+brt -s 20 &
 
 exec dwm

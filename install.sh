@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm xorg-xinit xorg-server xorg-xset libxft libx11 libxinerama webkit2gtk maim xclip picom feh
+sudo pacman -S --noconfirm xorg-xinit xorg-server xorg-xset xorg-xsetroot libxft libx11 libxinerama webkit2gtk maim xclip
 
 cd dwm
 sudo make clean install

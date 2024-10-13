@@ -1,8 +1,6 @@
 My suckless setup
 ============================
 
-![screenshot](screenshot.png)
-
 Installation
 ------------
 To install on arch linux based distros you need to run the script

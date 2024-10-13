@@ -1,5 +1,5 @@
-static char *font = "SauceCodePro Nerd Font:style=Regular:size=12" ;
-static int borderpx = 10;
+static char *font = "SauceCodePro:style=Regular:size=11.5" ;
+static int borderpx = 4;
 char *termname = "st";
 char *utmp = NULL;
 char *scroll = NULL;

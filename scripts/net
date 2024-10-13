@@ -22,23 +22,8 @@ then
 	rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
 
 	signal=$(cat /proc/net/wireless | awk '{if(NR == 3){print substr($3,1,2)}}')
-	if (($signal < 14));
-	then
-		printf "󰤯 "
-	elif (($signal < 28));
-	then
-		printf "󰤟 "
-	elif (($signal < 42));
-	then
-		printf "󰤢 "
-	elif (($signal < 56));
-	then
-		printf "󰤥 "
-	else
-		printf "󰤨 "
-	fi
 	printf "%1sB/s\n" $(numfmt --to=iec $rx)
 
 else
-	echo "󰤭 "
+	echo "X"
 fi
