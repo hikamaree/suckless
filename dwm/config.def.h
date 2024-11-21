@@ -69,6 +69,9 @@ static const char *brtup[]      = { "brt", "-i", NULL };
 static const char *brtdown[]    = { "brt", "-d", NULL };
 static const char *browser[]    = { "org.mozilla.firefox", NULL };
 static const char *discord[]    = { "dev.vencord.Vesktop", NULL };
+static const char *mpd_prev[]   = { "mpc", "prev", NULL };
+static const char *mpd_next[]   = { "mpc", "next", NULL };
+static const char *mpd_toggle[] = { "mpc", "toggle", NULL };
 
 static const char scratchpadname[]      = "sp";
 static const char *sp[]         = { "st", "-t", scratchpadname, "-g", "160x40", "ncmpcpp", NULL };
@@ -77,35 +80,33 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Alt_R,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = browser} },
+	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = discord } },
 	{ 0,                            XK_Alt_R,  spawn,          {.v = dmenucmd } },
 	{ 0,                            Mute,      spawn,          {.v = mute} },
-	{ 0,                            VolDown,   spawn,          {.v = voldown} },
+	{ 0,                            VolDown,   spawn,          {.v = voldown } },
 	{ 0,                            VolUp,     spawn,          {.v = volup} },
-	{ 0,                            BrtDown,   spawn,          {.v = brtdown} },
+	{ 0,                            BrtDown,   spawn,          {.v = brtdown } },
 	{ 0,                            BrtUp,     spawn,          {.v = brtup} },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = sp } },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Right,  setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Left,   setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_comma,  spawn,          {.v = mpd_prev } },
+	{ MODKEY,                       XK_period, spawn,          {.v = mpd_next } },
+	{ MODKEY,                       XK_slash,  spawn,          {.v = mpd_toggle } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
